@@ -474,9 +474,7 @@ function UniSelectForm() {
 
         <hr></hr>
 
-        <Row className="pt-2">
-            
-        </Row>
+        <Row className="pt-2">{/* TUITION FEE */}</Row>
       </Container>
     </>
   );
