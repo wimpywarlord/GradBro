@@ -1,0 +1,96 @@
+const COUNTRIES_FOR_EDUCATION = [
+  {
+    name: 'Australia',
+    code: 'AU',
+    timezone: 'AUS Eastern Standard Time',
+    utc: 'UTC+10:00',
+    mobileCode: '+61',
+  },
+  {
+    name: 'Canada',
+    code: 'CA',
+    timezone: 'Eastern Standard Time',
+    utc: 'UTC-05:00',
+    mobileCode: '+1',
+  },
+  {
+    name: 'France',
+    code: 'FR',
+    timezone: 'Romance Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+33',
+  },
+  {
+    name: 'Germany',
+    code: 'DE',
+    timezone: 'W. Europe Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+49',
+  },
+  {
+    name: 'Ireland',
+    code: 'IE',
+    timezone: 'GMT Standard Time',
+    utc: 'UTC',
+    mobileCode: '+353',
+  },
+  {
+    name: 'Italy',
+    code: 'IT',
+    timezone: 'W. Europe Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+39',
+  },
+  {
+    name: 'Netherlands',
+    code: 'NL',
+    timezone: 'W. Europe Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+31',
+  },
+  {
+    name: 'New Zealand',
+    code: 'NZ',
+    timezone: 'New Zealand Standard Time',
+    utc: 'UTC+12:00',
+    mobileCode: '+64',
+  },
+  {
+    name: 'Singapore',
+    code: 'SG',
+    timezone: 'Singapore Standard Time',
+    utc: 'UTC+08:00',
+    mobileCode: '+65',
+  },
+  {
+    name: 'Spain',
+    code: 'ES',
+    timezone: 'Romance Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+34',
+  },
+  {
+    name: 'Switzerland',
+    code: 'CH',
+    timezone: 'W. Europe Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+41',
+  },
+  {
+    name: 'United Kingdom',
+    code: 'GB',
+    timezone: 'GMT Standard Time',
+    utc: 'UTC',
+    mobileCode: '+44',
+  },
+  {
+    name: 'United States',
+    code: 'US',
+    timezone: 'Pacific Standard Time',
+    utc: 'UTC-08:00',
+    mobileCode: '+1',
+  },
+];
+
+
+export default COUNTRIES_FOR_EDUCATION;
