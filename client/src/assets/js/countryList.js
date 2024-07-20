@@ -1,10 +1,10 @@
 const COUNTRIES_FOR_EDUCATION = [
   {
-    name: 'Australia',
-    code: 'AU',
-    timezone: 'AUS Eastern Standard Time',
-    utc: 'UTC+10:00',
-    mobileCode: '+61',
+    name: 'United States',
+    code: 'US',
+    timezone: 'Pacific Standard Time',
+    utc: 'UTC-08:00',
+    mobileCode: '+1',
   },
   {
     name: 'Canada',
@@ -14,11 +14,11 @@ const COUNTRIES_FOR_EDUCATION = [
     mobileCode: '+1',
   },
   {
-    name: 'France',
-    code: 'FR',
-    timezone: 'Romance Standard Time',
-    utc: 'UTC+01:00',
-    mobileCode: '+33',
+    name: 'Australia',
+    code: 'AU',
+    timezone: 'AUS Eastern Standard Time',
+    utc: 'UTC+10:00',
+    mobileCode: '+61',
   },
   {
     name: 'Germany',
@@ -26,6 +26,13 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'W. Europe Standard Time',
     utc: 'UTC+01:00',
     mobileCode: '+49',
+  },
+  {
+    name: 'France',
+    code: 'FR',
+    timezone: 'Romance Standard Time',
+    utc: 'UTC+01:00',
+    mobileCode: '+33',
   },
   {
     name: 'Ireland',
@@ -82,13 +89,6 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'GMT Standard Time',
     utc: 'UTC',
     mobileCode: '+44',
-  },
-  {
-    name: 'United States',
-    code: 'US',
-    timezone: 'Pacific Standard Time',
-    utc: 'UTC-08:00',
-    mobileCode: '+1',
   },
 ];
 

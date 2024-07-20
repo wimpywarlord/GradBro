@@ -27,9 +27,9 @@ function HomePage() {
           />{" "}
           <span
             style={{
-              color: "#58D68D",
+              color: "#FFED00",
               textShadow:
-                "0.1 0.1 0.1px #00ff00, 0.1 0.1 0.1px #00ff00, 0.1 0.1 0.1px #00ff00, 0.1 0.1 0.1px #00ff00",
+                "0.1 0.1 0.1px #FFED00, 0.1 0.1 0.1px #FFED00, 0.1 0.1 0.1px #FFED00, 0.1 0.1 0.1px #00ff00",
             }}
           >
             GradBro
@@ -37,13 +37,7 @@ function HomePage() {
         </Navbar.Brand>
         <Nav style={{ paddingRight: "2vw" }} className="ms-auto">
           <Nav.Link href="#">
-            <span style={{ color: "white" }}>Home</span>
-          </Nav.Link>
-          <Nav.Link href="#">
-            <span style={{ color: "white" }}>Features</span>
-          </Nav.Link>
-          <Nav.Link href="#">
-            <span style={{ color: "white" }}>Pricing</span>
+            <span style={{ color: "white" }}>Login</span>
           </Nav.Link>
         </Nav>
       </Navbar>
