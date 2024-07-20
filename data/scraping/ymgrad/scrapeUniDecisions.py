@@ -27,10 +27,10 @@ driver.get(website)
 wait_for_username_field = WebDriverWait(driver, 10)
 wait_for_username_field.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div[5]/div/div/div[2]/div/section/div/form/div[1]/div/div/div/input")))
 username_field_element = driver.find_element(By.XPATH, "/html/body/div[2]/div/div[5]/div/div/div[2]/div/section/div/form/div[1]/div/div/div/input")
-username_field_element.send_keys("deviant29")
+username_field_element.send_keys("") # Enter your username via environment variable
 
 password_field = driver.find_element(By.XPATH, "/html/body/div[2]/div/div[5]/div/div/div[2]/div/section/div/form/div[2]/div/div/div/input")
-password_field.send_keys(".#j@Ai5F8QR$Z-h")
+password_field.send_keys("") # Enter your password via environment variable
 
 login_button = driver.find_element(By.XPATH, "/html/body/div[2]/div/div[5]/div/div/div[2]/div/section/div/form/input[1]")
 login_button.click()
