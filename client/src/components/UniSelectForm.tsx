@@ -26,7 +26,14 @@ interface Country {
   mobileCode: string;
 }
 
-function UniSelectForm() {
+// Define the props type
+type UniSelectFormProps = {
+  handleShowLogInSignUpModal: () => void;
+};
+
+const UniSelectForm: React.FC<UniSelectFormProps> = ({
+  handleShowLogInSignUpModal,
+}) => {
   // ! EDUCATION
   // Highest Degree Achieved Variable
   const [highestDegreeAchieved, setHighestDegreeAchieved] = useState("");
@@ -459,7 +466,6 @@ function UniSelectForm() {
       coverLetter,
       setCoverLetterError
     );
-
     if (isFormGoodToSubmit) {
       console.log("Uni Select Form is Good to Submit");
       setShowAlert(true);
@@ -1709,6 +1715,6 @@ function UniSelectForm() {
       </Container>
     </>
   );
-}
+};
 
 export default UniSelectForm;

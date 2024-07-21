@@ -8,7 +8,21 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import UniSelectForm from "../components/UniSelectForm";
 
+import LogInSignUp from "../components/LogInSignUpModal";
+
+import { useState, useEffect } from "react";
+
 function HomePage() {
+  // ! LOGIN MODAL
+  const [showLogInSignUpModal, setShowLogInSignUpModal] = useState(false);
+
+  const handleCloseLogInSignUpModal = () => {
+    setShowLogInSignUpModal(false);
+  };
+  const handleShowLogInSignUpModal = () => {
+    setShowLogInSignUpModal(true);
+  };
+
   return (
     <>
       {/* NAV BAR */}
@@ -37,7 +51,12 @@ function HomePage() {
         </Navbar.Brand>
         <Nav style={{ paddingRight: "2vw" }} className="ms-auto">
           <Nav.Link href="#">
-            <span style={{ color: "white" }}>Login</span>
+            <span
+              onClick={handleShowLogInSignUpModal}
+              style={{ color: "white" }}
+            >
+              Login
+            </span>
           </Nav.Link>
         </Nav>
       </Navbar>
@@ -92,10 +111,18 @@ function HomePage() {
         <Container className="pt-5">
           <Row>
             <Col>
-              <UniSelectForm></UniSelectForm>
+              <UniSelectForm
+                handleShowLogInSignUpModal={handleShowLogInSignUpModal}
+              ></UniSelectForm>
             </Col>
           </Row>
         </Container>
+
+        {/* LOGIN SIGNUP MODAL */}
+        <LogInSignUp
+          showLogInSignUpModal={showLogInSignUpModal}
+          handleCloseLogInSignUpModal={handleCloseLogInSignUpModal}
+        ></LogInSignUp>
       </div>
     </>
   );
