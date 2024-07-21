@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -18,6 +18,13 @@ import {
   signUpFormValidation,
 } from "../assets/js/logInSignUpFormValidation.ts";
 
+import {
+  postRequestSignUp,
+  postRequestLogin,
+} from "../assets/js/networkCalls.ts";
+
+import GradBroAlert from "./GradBroAlert";
+
 // Define the props type
 type LogInSignUpModalProps = {
   showLogInSignUpModal: boolean;
@@ -28,9 +35,6 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
   showLogInSignUpModal,
   handleCloseLogInSignUpModal,
 }) => {
-  // Signup and Login Tabs
-  const [tabSelectKey, setTabSelectKey] = useState("log-in");
-
   // ! LOGIN FORM - EMAIL
   const [logInFormEmail, setLogInFormEmail] = useState("");
   const [logInFormEmailError, setLogInFormEmailError] = useState("");
@@ -46,7 +50,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
     setLogInFormPassword(e.target.value);
   };
 
-  const handleLoginButtonClick = () => {
+  const handleLoginButtonClick = async () => {
     if (
       logInFormValidation(
         logInFormEmail,
@@ -56,6 +60,24 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       )
     ) {
       console.log("Log in Form is valid");
+
+      const response = await postRequestLogin(
+        logInFormEmail,
+        logInFormPassword
+      );
+
+      console.log(response);
+
+      if (response.status) {
+        setAlertShowAbsolute(true);
+        setAlertMessage(response.message);
+        setAlertType("success");
+        handleCloseLogInSignUpModal();
+      } else {
+        setAlertShowInline(true);
+        setAlertMessage(response.message);
+        setAlertType("danger");
+      }
     } else {
       console.log("Log in Form is invalid");
     }
@@ -90,7 +112,35 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
     setSignUpFormPassword(e.target.value);
   };
 
-  const handleSignUpButtonClick = () => {
+  // ! ALERTS
+  const [alertShowInline, setAlertShowInline] = useState(false);
+  const [alertShowAbsolute, setAlertShowAbsolute] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+
+  // Use effect to hide alert after 5 seconds
+  useEffect(() => {
+    if (alertShowInline) {
+      const timer = setTimeout(() => {
+        setAlertShowInline(false);
+        setAlertMessage("");
+        setAlertType("");
+      }, 5000); // 5 seconds
+
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount or when showAlert changes
+    }
+    if (alertShowAbsolute) {
+      const timer = setTimeout(() => {
+        setAlertShowAbsolute(false);
+        setAlertMessage("");
+        setAlertType("");
+      }, 5000); // 5 seconds
+
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount or when showAlert changes
+    }
+  }, [alertShowInline, alertShowAbsolute]);
+
+  const handleSignUpButtonClick = async () => {
     if (
       signUpFormValidation(
         signUpFormFirstName,
@@ -104,6 +154,25 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       )
     ) {
       console.log("Sign up Form is valid");
+      const response = await postRequestSignUp(
+        signUpFormFirstName,
+        signUpFormLastName,
+        signUpFormEmail,
+        signUpFormPassword
+      );
+
+      console.log(response);
+
+      if (response.status) {
+        setAlertShowAbsolute(true);
+        setAlertMessage(response.message);
+        setAlertType("success");
+        handleCloseLogInSignUpModal();
+      } else {
+        setAlertShowInline(true);
+        setAlertMessage(response.message);
+        setAlertType("danger");
+      }
     } else {
       console.log("Sign up Form is invalid");
     }
@@ -111,11 +180,16 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
 
   return (
     <>
+      {alertShowAbsolute && (
+        <GradBroAlert
+          inPlaceOrAbsolute="absolute"
+          message={alertMessage}
+          variant={alertType}
+        ></GradBroAlert>
+      )}
       <Modal
         size="lg"
         centered
-        activeKey={tabSelectKey}
-        onSelect={(k: string) => setTabSelectKey(k)}
         show={showLogInSignUpModal}
         onHide={handleCloseLogInSignUpModal}
         backdrop="static"
@@ -125,9 +199,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
           className="px-4 pt-4"
           style={{ borderBottom: "none" }}
           closeButton
-        >
-          <Modal.Title></Modal.Title>
-        </Modal.Header>
+        ></Modal.Header>
         <Modal.Body>
           <Container>
             <Tabs
@@ -143,6 +215,19 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                   <span className="log-in-sign-up-modal-tabs">Log-In</span>
                 }
               >
+                <Row className="pt-3">
+                  <Col>
+                    {/* ALERT */}
+                    {alertShowInline && (
+                      <GradBroAlert
+                        inPlaceOrAbsolute="static"
+                        message={alertMessage}
+                        variant={alertType}
+                      ></GradBroAlert>
+                    )}
+                  </Col>
+                </Row>
+
                 <Row className="py-3">
                   <Col>
                     <Form.Group
@@ -173,7 +258,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                     </Form.Group>
                   </Col>
                 </Row>
-                <Row className="py-1">
+                <Row className="py-1 pb-4">
                   <Col>
                     <Form.Group
                       style={{
@@ -203,20 +288,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                     </Form.Group>
                   </Col>
                 </Row>
-                <Row className="pt-2">
-                  <Col
-                    style={{
-                      display: "flex",
-                      justifyContent: "end",
-                      alignItems: "end",
-                    }}
-                  >
-                    <Form.Group className="mb-3" controlId="loginFormRemeberMe">
-                      <Form.Check type="checkbox" label="Remember me" />
-                    </Form.Group>
-                  </Col>
-                </Row>
-                <Row className="pb-4">
+                <Row className="pb-4 pt-2">
                   <Col
                     style={{
                       display: "flex",
@@ -248,6 +320,19 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                   <span className="log-in-sign-up-modal-tabs">Sign-Up</span>
                 }
               >
+                <Row className="pt-3">
+                  <Col>
+                    {/* ALERT */}
+                    {alertShowInline && (
+                      <GradBroAlert
+                        inPlaceOrAbsolute="static"
+                        message={alertMessage}
+                        variant={alertType}
+                      ></GradBroAlert>
+                    )}
+                  </Col>
+                </Row>
+
                 <Row className="py-3">
                   <Col
                     style={{

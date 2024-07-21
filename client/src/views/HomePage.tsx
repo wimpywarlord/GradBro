@@ -10,7 +10,7 @@ import UniSelectForm from "../components/UniSelectForm";
 
 import LogInSignUp from "../components/LogInSignUpModal";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function HomePage() {
   // ! LOGIN MODAL

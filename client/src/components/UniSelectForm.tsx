@@ -393,6 +393,8 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
     if (showAlert) {
       const timer = setTimeout(() => {
         setShowAlert(false);
+        setAlertMessage("");
+        setAlertType("");
       }, 5000); // 5 seconds
 
       return () => clearTimeout(timer); // Cleanup the timer on component unmount or when showAlert changes
@@ -481,8 +483,13 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
 
   return (
     <>
+      {/* ALERT */}
       {showAlert && (
-        <GradBroAlert variant={alertType} message={alertMessage}></GradBroAlert>
+        <GradBroAlert
+          inPlaceOrAbsolute="absolute"
+          variant={alertType}
+          message={alertMessage}
+        ></GradBroAlert>
       )}
       <Container className="uni-select-form-main-box py-5 px-5">
         <Row>
@@ -1600,8 +1607,8 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
               size="lg"
               type="text"
               placeholder="e.g. https://github.com/xyz"
-              id="portfolioLinkFormControl"
-              aria-describedby="portfolioLinkHelpBlock"
+              id="githubLinkFormControl"
+              aria-describedby="githubLinkHelpBlock"
             />
           </Col>
         </Row>
