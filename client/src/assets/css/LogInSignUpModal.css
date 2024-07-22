@@ -1,0 +1,27 @@
+@media screen and (max-width: 576px) {
+  .log-in-sign-up-modal-tabs {
+    font-size: 5vw; /* Increase font size */
+  }
+}
+
+@media screen and (min-width: 577px) {
+  .log-in-sign-up-modal-tabs {
+    font-size: 1.65vw; /* Increase font size */
+
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .log-in-sign-up-modal-tabs {
+    font-size: 1.1vw; /* Increase font size */
+  }
+}
+
+/* Custom styles for non-active tabs */
+.nav-tabs .nav-link {
+  color: gray; /* Change the text color of non-active tabs */
+}
+
+.nav-tabs .nav-link:hover {
+  color: darkgray; /* Change the text color on hover */
+}

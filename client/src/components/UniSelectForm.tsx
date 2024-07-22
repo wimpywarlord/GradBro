@@ -26,7 +26,14 @@ interface Country {
   mobileCode: string;
 }
 
-function UniSelectForm() {
+// Define the props type
+type UniSelectFormProps = {
+  handleShowLogInSignUpModal: () => void;
+};
+
+const UniSelectForm: React.FC<UniSelectFormProps> = ({
+  handleShowLogInSignUpModal,
+}) => {
   // ! EDUCATION
   // Highest Degree Achieved Variable
   const [highestDegreeAchieved, setHighestDegreeAchieved] = useState("");
@@ -386,6 +393,8 @@ function UniSelectForm() {
     if (showAlert) {
       const timer = setTimeout(() => {
         setShowAlert(false);
+        setAlertMessage("");
+        setAlertType("");
       }, 5000); // 5 seconds
 
       return () => clearTimeout(timer); // Cleanup the timer on component unmount or when showAlert changes
@@ -459,7 +468,6 @@ function UniSelectForm() {
       coverLetter,
       setCoverLetterError
     );
-
     if (isFormGoodToSubmit) {
       console.log("Uni Select Form is Good to Submit");
       setShowAlert(true);
@@ -475,8 +483,15 @@ function UniSelectForm() {
 
   return (
     <>
+      {/* ALERT */}
       {showAlert && (
-        <GradBroAlert variant={alertType} message={alertMessage}></GradBroAlert>
+        <GradBroAlert
+          topPosition="7.5%"
+          rightPosition="2%"
+          inPlaceOrAbsolute="absolute"
+          variant={alertType}
+          message={alertMessage}
+        ></GradBroAlert>
       )}
       <Container className="uni-select-form-main-box py-5 px-5">
         <Row>
@@ -1594,8 +1609,8 @@ function UniSelectForm() {
               size="lg"
               type="text"
               placeholder="e.g. https://github.com/xyz"
-              id="portfolioLinkFormControl"
-              aria-describedby="portfolioLinkHelpBlock"
+              id="githubLinkFormControl"
+              aria-describedby="githubLinkHelpBlock"
             />
           </Col>
         </Row>
@@ -1709,6 +1724,6 @@ function UniSelectForm() {
       </Container>
     </>
   );
-}
+};
 
 export default UniSelectForm;

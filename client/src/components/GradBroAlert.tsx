@@ -5,15 +5,24 @@ import React from "react";
 type GradBroAlertProps = {
   variant: string;
   message: string;
+  inPlaceOrAbsolute: "static" | "absolute";
+  topPosition?: string;
+  rightPosition?: string;
 };
 
-const GradBroAlert: React.FC<GradBroAlertProps> = ({ variant, message }) => {
+const GradBroAlert: React.FC<GradBroAlertProps> = ({
+  variant,
+  message,
+  inPlaceOrAbsolute,
+  topPosition,
+  rightPosition,
+}) => {
   return (
     <div
       style={{
-        position: "fixed",
-        top: "20px",
-        right: "20px",
+        position: inPlaceOrAbsolute,
+        top: topPosition ? topPosition : "20px",
+        right: rightPosition ? rightPosition : "20px",
         zIndex: 1050,
       }}
     >
