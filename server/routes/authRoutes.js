@@ -38,7 +38,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// ! TO BE REVIEWED
+// ! LOGIN ROUTE
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {

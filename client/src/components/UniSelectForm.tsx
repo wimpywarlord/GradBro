@@ -486,6 +486,8 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
       {/* ALERT */}
       {showAlert && (
         <GradBroAlert
+          topPosition="7.5%"
+          rightPosition="2%"
           inPlaceOrAbsolute="absolute"
           variant={alertType}
           message={alertMessage}

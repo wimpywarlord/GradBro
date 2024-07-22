@@ -29,11 +29,13 @@ import GradBroAlert from "./GradBroAlert";
 type LogInSignUpModalProps = {
   showLogInSignUpModal: boolean;
   handleCloseLogInSignUpModal: () => void;
+  setUserIsLoggedIn: (value: boolean) => void;
 };
 
 const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
   showLogInSignUpModal,
   handleCloseLogInSignUpModal,
+  setUserIsLoggedIn,
 }) => {
   // ! LOGIN FORM - EMAIL
   const [logInFormEmail, setLogInFormEmail] = useState("");
@@ -69,14 +71,20 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       console.log(response);
 
       if (response.status) {
-        setAlertShowAbsolute(true);
+        handleCloseLogInSignUpModal();
+
+        // Set the token in local storage
+        localStorage.setItem("jwtToken", response.token);
+        localStorage.setItem("userEmail", logInFormEmail);
+
         setAlertMessage(response.message);
         setAlertType("success");
-        handleCloseLogInSignUpModal();
+        setAlertShowAbsolute(true);
+        setUserIsLoggedIn(true);
       } else {
-        setAlertShowInline(true);
         setAlertMessage(response.message);
         setAlertType("danger");
+        setAlertShowInline(true);
       }
     } else {
       console.log("Log in Form is invalid");
@@ -183,6 +191,8 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       {alertShowAbsolute && (
         <GradBroAlert
           inPlaceOrAbsolute="absolute"
+          topPosition="7.5%"
+          rightPosition="2%"
           message={alertMessage}
           variant={alertType}
         ></GradBroAlert>
