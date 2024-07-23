@@ -1,0 +1,177 @@
+/* markdownStyles.css */
+
+/* General Styles */
+.markdown-content {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #232323;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Heading Styles */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  color: #000000;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-content h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.markdown-content h2 {
+  font-size: 2em;
+}
+
+.markdown-content h3 {
+  font-size: 1.75em;
+}
+
+.markdown-content h4 {
+  font-size: 1.5em;
+}
+
+.markdown-content h5 {
+  font-size: 1.25em;
+}
+
+.markdown-content h6 {
+  font-size: 1em;
+}
+
+/* Paragraph and Text Styles */
+.markdown-content p {
+  margin-bottom: 1em;
+}
+
+.markdown-content a {
+  color: #0F6292;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 576px) {
+  /* List Styles */
+  .markdown-content ul,
+  .markdown-content ol {
+    margin-bottom: 1em;
+  }
+
+  .markdown-content li {
+    margin-bottom: 0.5em;
+  }
+  
+  .markdown-content {
+    padding: 10px;
+  }
+
+  .markdown-content h1 {
+      font-size: 1.75em;
+  }
+
+  .markdown-content h2 {
+      font-size: 1.5em;
+  }
+
+  .markdown-content h3 {
+      font-size: 1.25em;
+  }
+
+  .markdown-content h4 {
+      font-size: 1em;
+  }
+
+  .markdown-content h5 {
+      font-size: 0.875em;
+  }
+
+  .markdown-content h6 {
+      font-size: 0.75em;
+  }
+}
+
+@media screen and (min-width: 577px) {
+  /* List Styles */
+  .markdown-content ul,
+  .markdown-content ol {
+    margin-left: 0.4em;
+    margin-bottom: 1em;
+  }
+
+  .markdown-content li {
+    margin-bottom: 0.5em;
+  }
+
+  .markdown-content h1 {
+      font-size: 2em;
+  }
+
+  .markdown-content h2 {
+      font-size: 1.75em;
+  }
+
+  .markdown-content h3 {
+      font-size: 1.5em;
+  }
+
+  .markdown-content h4 {
+      font-size: 1.25em;
+  }
+
+  .markdown-content h5 {
+      font-size: 1em;
+  }
+
+  .markdown-content h6 {
+      font-size: 0.875em;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  /* List Styles */
+  .markdown-content ul,
+  .markdown-content ol {
+    margin-left: 0.4em;
+    margin-bottom: 1em;
+  }
+
+  .markdown-content li {
+    margin-bottom: 0.5em;
+  }
+
+  .markdown-content h1 {
+    font-size: 2em;
+  }
+
+  .markdown-content h2 {
+      font-size: 1.75em;
+  }
+
+  .markdown-content h3 {
+      font-size: 1.5em;
+  }
+
+  .markdown-content h4 {
+      font-size: 1.25em;
+  }
+
+  .markdown-content h5 {
+      font-size: 1em;
+  }
+
+  .markdown-content h6 {
+      font-size: 0.875em;
+  }
+}

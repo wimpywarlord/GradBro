@@ -41,14 +41,14 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
   const [logInFormEmail, setLogInFormEmail] = useState("");
   const [logInFormEmailError, setLogInFormEmailError] = useState("");
   const handleLogInFormEmailChange = (e: any) => {
-    console.log("EVENT -> logInFormEmail", e.target.value);
+    // console.log("EVENT -> logInFormEmail", e.target.value);
     setLogInFormEmail(e.target.value);
   };
   // ! LOGIN FORM - PASSWORD
   const [logInFormPassword, setLogInFormPassword] = useState("");
   const [logInFormPasswordError, setLogInFormPasswordError] = useState("");
   const handleLogInFormPasswordChange = (e: any) => {
-    console.log("EVENT -> logInFormPassword", e.target.value);
+    // console.log("EVENT -> logInFormPassword", e.target.value);
     setLogInFormPassword(e.target.value);
   };
 
@@ -61,14 +61,15 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
         setLogInFormPasswordError
       )
     ) {
-      console.log("Log in Form is valid");
+      // console.log("Log in Form is valid");
+      // console.log(logInFormEmail, logInFormPassword);
 
       const response = await postRequestLogin(
         logInFormEmail,
         logInFormPassword
       );
 
-      console.log(response);
+      // console.log(response);
 
       if (response.status) {
         handleCloseLogInSignUpModal();
@@ -77,17 +78,19 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
         localStorage.setItem("jwtToken", response.token);
         localStorage.setItem("userEmail", logInFormEmail);
 
+        setUserIsLoggedIn(true);
         setAlertMessage(response.message);
         setAlertType("success");
         setAlertShowAbsolute(true);
-        setUserIsLoggedIn(true);
+        setLogInFormEmail("");
+        setLogInFormPassword("");
       } else {
         setAlertMessage(response.message);
         setAlertType("danger");
         setAlertShowInline(true);
       }
     } else {
-      console.log("Log in Form is invalid");
+      // console.log("Log in Form is invalid");
     }
   };
 
@@ -95,28 +98,28 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
   const [signUpFormFirstName, setSignUpFormFirstName] = useState("");
   const [signUpFormFirstNameError, setSignUpFormFirstNameError] = useState("");
   const handleSignUpFormFirstNameChange = (e: any) => {
-    console.log("EVENT -> signUpFormFirstName", e.target.value);
+    // console.log("EVENT -> signUpFormFirstName", e.target.value);
     setSignUpFormFirstName(e.target.value);
   };
   // ! SIGN UP FORM - LAST NAME
   const [signUpFormLastName, setSignUpFormLastName] = useState("");
   const [signUpFormLastNameError, setSignUpFormLastNameError] = useState("");
   const handleSignUpFormLastNameChange = (e: any) => {
-    console.log("EVENT -> signUpFormLastName", e.target.value);
+    // console.log("EVENT -> signUpFormLastName", e.target.value);
     setSignUpFormLastName(e.target.value);
   };
   // ! SIGN UP FORM - EMAIL
   const [signUpFormEmail, setSignUpFormEmail] = useState("");
   const [signUpFormEmailError, setSignUpFormEmailError] = useState("");
   const handleSignUpFormEmailChange = (e: any) => {
-    console.log("EVENT -> signUpFormEmail", e.target.value);
+    // console.log("EVENT -> signUpFormEmail", e.target.value);
     setSignUpFormEmail(e.target.value);
   };
   // ! SIGN UP FORM - PASSWORD
   const [signUpFormPassword, setSignUpFormPassword] = useState("");
   const [signUpFormPasswordError, setSignUpFormPasswordError] = useState("");
   const handleSignUpFormPasswordChange = (e: any) => {
-    console.log("EVENT -> signUpFormPassword", e.target.value);
+    // console.log("EVENT -> signUpFormPassword", e.target.value);
     setSignUpFormPassword(e.target.value);
   };
 
@@ -161,7 +164,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
         setSignUpFormPasswordError
       )
     ) {
-      console.log("Sign up Form is valid");
+      // console.log("Sign up Form is valid");
       const response = await postRequestSignUp(
         signUpFormFirstName,
         signUpFormLastName,
@@ -169,20 +172,24 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
         signUpFormPassword
       );
 
-      console.log(response);
+      // console.log(response);
 
       if (response.status) {
         setAlertShowAbsolute(true);
         setAlertMessage(response.message);
         setAlertType("success");
         handleCloseLogInSignUpModal();
+        setSignUpFormFirstName("");
+        setSignUpFormLastName("");
+        setSignUpFormEmail("");
+        setSignUpFormPassword("");
       } else {
         setAlertShowInline(true);
         setAlertMessage(response.message);
         setAlertType("danger");
       }
     } else {
-      console.log("Sign up Form is invalid");
+      // console.log("Sign up Form is invalid");
     }
   };
 
@@ -190,8 +197,8 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
     <>
       {alertShowAbsolute && (
         <GradBroAlert
-          inPlaceOrAbsolute="absolute"
-          topPosition="7.5%"
+          inPlaceOrAbsolute="fixed"
+          topPosition="92.5%"
           rightPosition="2%"
           message={alertMessage}
           variant={alertType}

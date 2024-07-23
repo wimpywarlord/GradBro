@@ -2,7 +2,6 @@ const express = require('express');
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-require('dotenv').config();
 
 const router = express.Router()
 
@@ -41,6 +40,7 @@ router.post('/signup', async (req, res) => {
 // ! LOGIN ROUTE
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
   try {
     const user = await User.findOne({ email });
     if (!user) {
@@ -58,7 +58,7 @@ router.post("/login", async (req, res) => {
     console.log("Log-in successful");
     res.status(200).json({ message: "Log-in successful", token });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Server error, please try again later", err });
   }
 });

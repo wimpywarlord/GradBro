@@ -3,7 +3,7 @@ import validator from 'validator';
 
 const regexForIntegerNumericWithPositiveNegativeNumbers = /^[+-]?\d+$/;
 const regexForFloatNumericWithPositiveNegativeNumbers = /^[+-]?\d+(\.\d+)?$/;
-const regexForAlphanumericWithSpaces = /^[a-z0-9\s]+$/i
+const regexForAlphanumericWithSpaces = /^[a-zA-Z0-9\s\-\(\),'.!?;:&"]+$/
 
 export const uniSelectFormValidation = (
   highestDegreeAchieved: string,
@@ -63,43 +63,37 @@ export const uniSelectFormValidation = (
   setResearchArticleUrlError: Function, // USE STATE FUNCTION
   githubUrl: string,
   setGithubUrlError: Function, // USE STATE FUNCTION
-  resumeFile: any, // ! Double Check
-  setResumeFileError: Function, // USE STATE FUNCTION
-  coverLetter: any, // ! Double Check
-  setCoverLetterError: Function // USE STATE FUNCTION
 ) => {
-  console.log("highestDegreeAchieved", highestDegreeAchieved)
-  console.log("highestDegreeAchievedSpecialisation", highestDegreeAchievedSpecialisation)
-  console.log("highestDegreeAchievedGraduationYear", highestDegreeAchievedGraduationYear)
-  console.log("heightDegreeAchievedInstitution", heightDegreeAchievedInstitution)
-  console.log("highestDegreeAchievedCollegeTier", highestDegreeAchievedCollegeTier)
-  console.log("cgpaScore", cgpaScore)
-  console.log("cgpaScale", cgpaScale)
-  console.log("greQuantScore", greQuantScore)
-  console.log("greVerbalScore", greVerbalScore)
-  console.log("gmatScore", gmatScore)
-  console.log("gmatExamEdition", gmatExamEdition)
-  console.log("toeflScore", toeflScore)
-  console.log("ieltsScore", ieltsScore)
-  console.log("destinationCountry", destinationCountry)
-  console.log("degreeOfInterest", degreeOfInterest)
-  console.log("degreeOfInterestSpecialisation", degreeOfInterestSpecialisation)
-  console.log("educationBudget", educationBudget)
-  console.log("yearsOfWorkEx", yearsOfWorkEx)
-  console.log("typeOfWorkEx", typeOfWorkEx)
-  console.log("typeOfCompany", typeOfCompany)
-  console.log("nameOfTheCompany", nameOfTheCompany)
-  console.log("jobTitle", jobTitle)
-  console.log("numberOfResearchArticles", numberOfResearchArticles)
-  console.log("qualityOfResearch", qualityOfResearch)
-  console.log("numberOfLetterOfRecommendation", numberOfLetterOfRecommendation)
-  console.log("qualityOfLetterOfRecommendation", qualityOfLetterOfRecommendation)
-  console.log("linkedInUrl", linkedInUrl)
-  console.log("portfolioUrl", portfolioUrl)
-  console.log("researchArticleUrl", researchArticleUrl)
-  console.log("githubUrl", githubUrl)
-  console.log("resumeFile", resumeFile)
-  console.log("coverLetter", coverLetter)
+  // console.log("highestDegreeAchieved", highestDegreeAchieved)
+  // console.log("highestDegreeAchievedSpecialisation", highestDegreeAchievedSpecialisation)
+  // console.log("highestDegreeAchievedGraduationYear", highestDegreeAchievedGraduationYear)
+  // console.log("heightDegreeAchievedInstitution", heightDegreeAchievedInstitution)
+  // console.log("highestDegreeAchievedCollegeTier", highestDegreeAchievedCollegeTier)
+  // console.log("cgpaScore", cgpaScore)
+  // console.log("cgpaScale", cgpaScale)
+  // console.log("greQuantScore", greQuantScore)
+  // console.log("greVerbalScore", greVerbalScore)
+  // console.log("gmatScore", gmatScore)
+  // console.log("gmatExamEdition", gmatExamEdition)
+  // console.log("toeflScore", toeflScore)
+  // console.log("ieltsScore", ieltsScore)
+  // console.log("destinationCountry", destinationCountry)
+  // console.log("degreeOfInterest", degreeOfInterest)
+  // console.log("degreeOfInterestSpecialisation", degreeOfInterestSpecialisation)
+  // console.log("educationBudget", educationBudget)
+  // console.log("yearsOfWorkEx", yearsOfWorkEx)
+  // console.log("typeOfWorkEx", typeOfWorkEx)
+  // console.log("typeOfCompany", typeOfCompany)
+  // console.log("nameOfTheCompany", nameOfTheCompany)
+  // console.log("jobTitle", jobTitle)
+  // console.log("numberOfResearchArticles", numberOfResearchArticles)
+  // console.log("qualityOfResearch", qualityOfResearch)
+  // console.log("numberOfLetterOfRecommendation", numberOfLetterOfRecommendation)
+  // console.log("qualityOfLetterOfRecommendation", qualityOfLetterOfRecommendation)
+  // console.log("linkedInUrl", linkedInUrl)
+  // console.log("portfolioUrl", portfolioUrl)
+  // console.log("researchArticleUrl", researchArticleUrl)
+  // console.log("githubUrl", githubUrl)
 
   // FLAG VARIABLE
   let isFormGoodToSubmit : boolean= true;
@@ -538,19 +532,6 @@ export const uniSelectFormValidation = (
   // RESET ERROR IF NO ERROR OCCURED
   if(!isErrorOccuredForGithubUrl){
     setGithubUrlError("");
-  }
-
-  // ! FORM VALIDATION FOR RESUME FILE
-  let isErrorOccuredForResumeFile = false;
-  if(resumeFile == null) { // IS EMPTY
-    // console.log("1-resumeFile")
-    setResumeFileError("This field is required");
-    isFormGoodToSubmit = false;
-    isErrorOccuredForResumeFile = true;
-  }
-  // RESET ERROR IF NO ERROR OCCURED
-  if(!isErrorOccuredForResumeFile){
-    setResumeFileError("");
   }
 
   return isFormGoodToSubmit;

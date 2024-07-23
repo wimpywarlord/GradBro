@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 
 import { getRequestUserProfile } from "../assets/js/networkCalls";
 
+import Footer from "../components/Footer";
+
 // ! GRAD BRO CREDIT ICON
 const GradBroCreditIcon = () => {
   return (
@@ -288,6 +290,10 @@ function HomePage() {
     setUserIsLoggedIn(false);
   };
 
+  // ! IS USER SUBMIT UNI SELECT FORM
+  const [isUserSubmitUniSelectForm, setIsUserSubmitUniSelectForm] =
+    useState(false);
+
   // ! CHECK IF USER IS ALREADY LOGGED IN
   const [isUserLoggedIn, setUserIsLoggedIn] = useState(false);
 
@@ -296,29 +302,30 @@ function HomePage() {
       // Fetch jwt token from local storage
       const jwtToken = localStorage.getItem("jwtToken");
       const userEmail = localStorage.getItem("userEmail");
-      console.log(jwtToken);
-      console.log(userEmail);
+      // console.log(jwtToken);
+      // console.log(userEmail);
       if (jwtToken && userEmail) {
         // FETCH USER PROFILE
         const responseUserProfileData = await getRequestUserProfile();
 
-        console.log(responseUserProfileData);
+        // console.log(responseUserProfileData);
 
         if (responseUserProfileData.status) {
           setUserIsLoggedIn(true);
-          console.log("******************");
-          console.log(responseUserProfileData.data);
+          // console.log("******************");
+          // console.log(responseUserProfileData.data);
           setUserProfileData(responseUserProfileData.data);
         } else {
+          handleUserLogout();
           setUserIsLoggedIn(false);
         }
       } else {
-        setUserIsLoggedIn(false);
+        handleUserLogout();
       }
     };
 
     fetchUserData();
-  }, [isUserLoggedIn]);
+  }, [isUserLoggedIn, isUserSubmitUniSelectForm]);
 
   return (
     <>
@@ -359,7 +366,8 @@ function HomePage() {
                 href="#"
               >
                 <span className="credit-points-user-profile">
-                  {userProfileData.credits.toString() == "1"
+                  {userProfileData.credits &&
+                  userProfileData.credits.toString() == "1"
                     ? userProfileData.credits + " credit"
                     : userProfileData.credits + " credits"}
                   <GradBroCreditIcon></GradBroCreditIcon>
@@ -456,6 +464,8 @@ function HomePage() {
           <Row>
             <Col>
               <UniSelectForm
+                setIsUserSubmitUniSelectForm={setIsUserSubmitUniSelectForm}
+                isUserSubmitUniSelectForm={isUserSubmitUniSelectForm} // This is to refresh user credit data on home page
                 handleShowLogInSignUpModal={handleShowLogInSignUpModal}
               ></UniSelectForm>
             </Col>
@@ -468,6 +478,15 @@ function HomePage() {
           showLogInSignUpModal={showLogInSignUpModal}
           handleCloseLogInSignUpModal={handleCloseLogInSignUpModal}
         ></LogInSignUp>
+
+        {/* FOOTER */}
+        <Container className="pt-5">
+          <Row>
+            <Col>
+              <Footer></Footer>
+            </Col>
+          </Row>
+        </Container>
       </div>
     </>
   );
