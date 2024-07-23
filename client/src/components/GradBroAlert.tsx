@@ -5,7 +5,7 @@ import React from "react";
 type GradBroAlertProps = {
   variant: string;
   message: string;
-  inPlaceOrAbsolute: "static" | "absolute";
+  inPlaceOrAbsolute: "static" | "absolute" | "fixed";
   topPosition?: string;
   rightPosition?: string;
 };

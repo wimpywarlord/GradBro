@@ -5,6 +5,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'Pacific Standard Time',
     utc: 'UTC-08:00',
     mobileCode: '+1',
+    currency: 'USD',
   },
   {
     name: 'Canada',
@@ -12,6 +13,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'Eastern Standard Time',
     utc: 'UTC-05:00',
     mobileCode: '+1',
+    currency: 'CAD',
   },
   {
     name: 'Australia',
@@ -19,6 +21,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'AUS Eastern Standard Time',
     utc: 'UTC+10:00',
     mobileCode: '+61',
+    currency: 'AUD',
   },
   {
     name: 'Germany',
@@ -26,6 +29,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'W. Europe Standard Time',
     utc: 'UTC+01:00',
     mobileCode: '+49',
+    currency: 'EUR',
   },
   {
     name: 'France',
@@ -33,6 +37,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'Romance Standard Time',
     utc: 'UTC+01:00',
     mobileCode: '+33',
+    currency: 'EUR',
   },
   {
     name: 'Ireland',
@@ -40,6 +45,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'GMT Standard Time',
     utc: 'UTC',
     mobileCode: '+353',
+    currency: 'EUR',
   },
   {
     name: 'Italy',
@@ -47,13 +53,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'W. Europe Standard Time',
     utc: 'UTC+01:00',
     mobileCode: '+39',
-  },
-  {
-    name: 'Netherlands',
-    code: 'NL',
-    timezone: 'W. Europe Standard Time',
-    utc: 'UTC+01:00',
-    mobileCode: '+31',
+    currency: 'EUR',
   },
   {
     name: 'New Zealand',
@@ -61,6 +61,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'New Zealand Standard Time',
     utc: 'UTC+12:00',
     mobileCode: '+64',
+    currency: 'NZD',
   },
   {
     name: 'Singapore',
@@ -68,6 +69,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'Singapore Standard Time',
     utc: 'UTC+08:00',
     mobileCode: '+65',
+    currency: 'SGD',
   },
   {
     name: 'Spain',
@@ -75,6 +77,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'Romance Standard Time',
     utc: 'UTC+01:00',
     mobileCode: '+34',
+    currency: 'EUR',
   },
   {
     name: 'Switzerland',
@@ -82,6 +85,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'W. Europe Standard Time',
     utc: 'UTC+01:00',
     mobileCode: '+41',
+    currency: 'CHF',
   },
   {
     name: 'United Kingdom',
@@ -89,6 +93,7 @@ const COUNTRIES_FOR_EDUCATION = [
     timezone: 'GMT Standard Time',
     utc: 'UTC',
     mobileCode: '+44',
+    currency: 'GBP',
   },
 ];
 
