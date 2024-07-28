@@ -125,6 +125,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
   ] = useState("");
   const [
     highestDegreeAchievedCollegeTierError,
+    //@ts-ignore
     setHighestDegreeAchievedCollegeTierError,
   ] = useState("");
   const handleHighestDegreeAchievedCollegeTierOnChanged = (event: any) => {
