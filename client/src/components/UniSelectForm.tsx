@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
 import "../assets/css/UniSelectForm.css";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 
 import GradBroAlert from "../components/GradBroAlert.tsx";

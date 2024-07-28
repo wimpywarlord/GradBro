@@ -33,7 +33,7 @@ const UniSuggestion: React.FC<UniSuggestionProps> = ({
     const page = pdfDoc.addPage([600, 400]);
 
     // Set font size and color
-    const { width, height } = page.getSize();
+    const { height } = page.getSize();
     const fontSize = 12;
     const textColor = rgb(0, 0, 0);
 

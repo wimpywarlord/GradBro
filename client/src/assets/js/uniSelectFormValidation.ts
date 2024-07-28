@@ -14,8 +14,8 @@ export const uniSelectFormValidation = (
   setHighestDegreeAchievedGraduationYearError: Function, // USE STATE FUNCTION
   heightDegreeAchievedInstitution: string,
   setHeightDegreeAchievedInstitutionError: Function, // USE STATE FUNCTION
-  highestDegreeAchievedCollegeTier: string,
-  setHighestDegreeAchievedCollegeTierError: Function, // USE STATE FUNCTION
+  // highestDegreeAchievedCollegeTier: string,
+  // setHighestDegreeAchievedCollegeTierError: Function, // USE STATE FUNCTION
   cgpaScore: string,
   cgpaScale: string,
   setCombinedCGPAError: Function, // USE STATE FUNCTION
@@ -35,26 +35,26 @@ export const uniSelectFormValidation = (
   setDegreeOfInterestError: Function, // USE STATE FUNCTION
   degreeOfInterestSpecialisation: string,
   setDegreeOfInterestSpecialisationError: Function, // USE STATE FUNCTION
-  educationBudget: string,
-  setEducationBudgetError: Function, // USE STATE FUNCTION
+  // educationBudget: string,
+  // setEducationBudgetError: Function, // USE STATE FUNCTION
   yearsOfWorkEx: string,
   setYearsOfWorkExError: Function, // USE STATE FUNCTION
-  typeOfWorkEx: string,
-  setTypeOfWorkExError: Function, // USE STATE FUNCTION
-  typeOfCompany: string,
-  setTypeOfCompanyError: Function, // USE STATE FUNCTION
+  // typeOfWorkEx: string,
+  // setTypeOfWorkExError: Function, // USE STATE FUNCTION
+  // typeOfCompany: string,
+  // setTypeOfCompanyError: Function, // USE STATE FUNCTION
   nameOfTheCompany: string,
   setNameOfTheCompanyError: Function, // USE STATE FUNCTION
   jobTitle: string,
   setJobTitleError: Function, // USE STATE FUNCTION
   numberOfResearchArticles: string,
   setNumberOfResearchArticlesError: Function, // USE STATE FUNCTION
-  qualityOfResearch: string,
-  setQualityOfResearchError: Function, // USE STATE FUNCTION
+  // qualityOfResearch: string,
+  // setQualityOfResearchError: Function, // USE STATE FUNCTION
   numberOfLetterOfRecommendation: string,
   setNumberOfLetterOfRecommendationError: Function, // USE STATE FUNCTION
-  qualityOfLetterOfRecommendation: string,
-  setQualityOfLetterOfRecommendationError: Function, // USE STATE FUNCTION
+  // qualityOfLetterOfRecommendation: string,
+  // setQualityOfLetterOfRecommendationError: Function, // USE STATE FUNCTION
   linkedInUrl: string,
   setLinkedInUrlError: Function, // USE STATE FUNCTION
   portfolioUrl: string,
