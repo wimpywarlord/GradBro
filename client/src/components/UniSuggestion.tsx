@@ -56,7 +56,7 @@ const UniSuggestion: React.FC<UniSuggestionProps> = ({
   };
 
   return (
-    <div className="markdown-content">
+    <div className="markdown-content px-5">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>
         {markDownContent}
       </ReactMarkdown>

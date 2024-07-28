@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://gradbro.onrender.com/api';
 
 // ! SIGN UP API CALL
 export const postRequestSignUp = async (
