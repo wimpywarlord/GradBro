@@ -234,6 +234,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
 
   // EDUCATION BUDGET
   const [educationBudget, setEducationBudget] = useState("100000 USD");
+  //@ts-ignore
   const [educationBudgetError, setEducationBudgetError] = useState("");
   const handleEducationBudgetChange = (event: any) => {
     // console.log(event.target.value);
@@ -263,6 +264,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
 
   // Type of Work Experience Variable
   const [typeOfWorkEx, setTypeOfWorkEx] = useState("");
+  //@ts-ignore
   const [typeOfWorkExError, setTypeOfWorkExError] = useState("");
   const handleTypeOfWorkExOnChanged = (event: any) => {
     // console.log("EVENT -> typeOfWorkEx :", event.target.value);
@@ -271,6 +273,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
 
   // Type of Company Variable
   const [typeOfCompany, setTypeOfCompany] = useState("");
+  //@ts-ignore
   const [typeOfCompanyError, setTypeOfCompanyError] = useState("");
   const handleTypeOfCompanyOnChanged = (event: any) => {
     // console.log("EVENT -> typeOfCompany :", event.target.value);
@@ -305,6 +308,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
 
   // Quality of Research Variable
   const [qualityOfResearch, setQualityOfResearch] = useState("");
+  //@ts-ignore
   const [qualityOfResearchError, setQualityOfResearchError] = useState("");
   const handleQualityOfResearchOnChanged = (event: any) => {
     // console.log("EVENT -> qualityOfResearch :", event.target.value);
@@ -331,6 +335,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
     useState("");
   const [
     qualityOfLetterOfRecommendationError,
+    //@ts-ignore
     setQualityOfLetterOfRecommendationError,
   ] = useState("");
   const handleQualityOfLetterOfRecommendationOnChanged = (event: any) => {
@@ -454,7 +459,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
         // setTypeOfWorkExError,
         // typeOfCompany,
         // setTypeOfCompanyError,
-        // nameOfTheCompany,
+        nameOfTheCompany,
         setNameOfTheCompanyError,
         jobTitle,
         setJobTitleError,
