@@ -59,6 +59,65 @@ generateUniSelectPrompt = (requestBody) => {
     },
     {
       role: "system",
+      content: "Always follow this markdown format to provide the recommendation of the universities.",
+    },
+    {
+      role: "system",
+      content: `
+      ### Safe Universities
+1. **University Name 1**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+2. **University Name 2**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+3. **University Name 3**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+### Medium Universities
+1. **University Name 4**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+2. **University Name 5**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+3. **University Name 6**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+### Ambitious Universities
+1. **University Name 7**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+2. **University Name 8**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+3. **University Name 9**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)`,
+    },
+    {
+      role: "system",
+      content: "Apart from the college recommendations you provide, you should also make a comment/judegement on the student's profile and credentials.",
+    },
+    {
+      role: "system",
       content: "Please recommend universities for the following student profile:",
     },
     {

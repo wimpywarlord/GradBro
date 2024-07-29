@@ -5,3 +5,29 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+@media screen and (max-width: 576px) {
+  .uni-form-select-questions-parent-div{
+    height: 60vh;
+    overflow-y: scroll;
+  }
+
+  .ai-strength-indicator-box{
+    padding-bottom: 3.75vw;
+  }
+}
+
+@media screen and (min-width: 577px) {
+  .ai-strength-indicator-box{
+    padding-bottom: 1.5vw;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .ai-strength-indicator-box{
+    padding-bottom: 1.25vw;
+  }
+}
+
+
+
+

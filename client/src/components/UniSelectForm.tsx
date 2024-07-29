@@ -566,29 +566,11 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
         ></GradBroAlert>
       )}
       <Container className="uni-select-form-main-box py-5 px-5">
-        <Row className="pb-4">
-          <Col
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontSize: "1em",
-              fontWeight: "500",
-            }}
-          >
-            <span className="mx-1">Made with 💛 by</span>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/kshitijdhyani/"
-            >
-              Kshitij Dhyani
-            </a>
-          </Col>
-        </Row>
         {!uniRecommendationMarkdown && (
           <Row className="pb-4">
             <Col xs={12} sm={12} md={4}></Col>
             <Col xs={12} sm={12} md={4}></Col>
-            <Col xs={12} sm={12} md={4}>
+            <Col className="ai-strength-indicator-box" xs={12} sm={12} md={12}>
               <span>
                 <p>
                   <span
@@ -678,7 +660,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
             ></UniSuggestion>
           </Row>
         ) : (
-          <>
+          <div className="uni-form-select-questions-parent-div">
             <Row>
               <Col>
                 <h2>Education</h2>
@@ -1751,8 +1733,8 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
             <Row className="pt-3 pb-2">
               {/* Research Article Link */}
               <Col
-                xs={11}
-                sm={11}
+                xs={12}
+                sm={12}
                 md={6}
                 style={{
                   flexDirection: "column",
@@ -1899,7 +1881,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
                 </Button>{" "}
               </Col>
             </Row>
-          </>
+          </div>
         )}
       </Container>
     </>
