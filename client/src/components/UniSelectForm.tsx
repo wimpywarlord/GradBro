@@ -53,7 +53,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
   const [highestDegreeAchievedError, setHighestDegreeAchievedError] =
     useState("");
   const handleHighestDegreeAchievedOnChanged = (event: any) => {
-    console.log("EVENT -> highestDegreeAchieved :", event.target.value);
+    // console.log("EVENT -> highestDegreeAchieved :", event.target.value);
     setHighestDegreeAchieved(event.target.value);
   };
 
@@ -558,7 +558,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
       {/* ALERT */}
       {showAlert && (
         <GradBroAlert
-          topPosition="92.5%"
+          topPosition="7.5%"
           rightPosition="2%"
           inPlaceOrAbsolute="fixed"
           variant={alertType}

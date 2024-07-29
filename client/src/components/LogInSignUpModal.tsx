@@ -198,7 +198,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       {alertShowAbsolute && (
         <GradBroAlert
           inPlaceOrAbsolute="fixed"
-          topPosition="92.5%"
+          topPosition="7.5%"
           rightPosition="2%"
           message={alertMessage}
           variant={alertType}

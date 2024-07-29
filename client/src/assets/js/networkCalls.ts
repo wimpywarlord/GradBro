@@ -17,7 +17,7 @@ export const postRequestSignUp = async (
       password: password,
     });
 
-    console.log("API -> POST signUP Response",signUpResponse.data.message)
+    // console.log("API -> POST signUP Response",signUpResponse.data.message)
 
     // CALL SUCCESSFUL
     return {
@@ -26,8 +26,8 @@ export const postRequestSignUp = async (
     }
   } catch (error: any) {
     // Handle error
-    console.error('API -> POST Error during SignUp:', error);
-    console.log(error);
+    // console.error('API -> POST Error during SignUp:', error);
+    // console.log(error);
 
     // CALL FAILED
     return {
@@ -49,8 +49,8 @@ export const postRequestLogin = async (
       password: password,
     });
 
-    console.log("API -> POST login Response",loginResponse)
-    console.log("API -> POST login Response",loginResponse.data.message)
+    // console.log("API -> POST login Response",loginResponse)
+    // console.log("API -> POST login Response",loginResponse.data.message)
 
     // CALL SUCCESSFUL
     return {
@@ -60,8 +60,8 @@ export const postRequestLogin = async (
     }
   } catch (error: any) {
     // Handle error
-    console.error('API -> POST Error during Login:', error);
-    console.log(error);
+    // console.error('API -> POST Error during Login:', error);
+    // console.log(error);
 
     // CALL FAILED
     return {
@@ -83,8 +83,8 @@ export const getRequestUserProfile = async () => {
       }
     });
 
-    console.log("API -> GET User Profile Data Response",userProfileResponse)
-    console.log("API -> GET User Profile Data Response",userProfileResponse.data)
+    // console.log("API -> GET User Profile Data Response",userProfileResponse)
+    // console.log("API -> GET User Profile Data Response",userProfileResponse.data)
 
     return {
       status: true,
@@ -93,8 +93,8 @@ export const getRequestUserProfile = async () => {
 
   } catch (error: any) {
     // Handle error
-    console.error('API -> Error during GET User Profile Data', error);
-    console.log(error);
+    // console.error('API -> Error during GET User Profile Data', error);
+    // console.log(error);
 
     // CALL FAILED
     return {
@@ -192,8 +192,8 @@ export const postRequestUniSelectForm = async (
       },
     });
 
-    console.log("API -> POST Uni Select Form Response",uniFormSubmitResponse)
-    console.log("API -> POST Uni Select Form Response Data",uniFormSubmitResponse.data)
+    // console.log("API -> POST Uni Select Form Response",uniFormSubmitResponse)
+    // console.log("API -> POST Uni Select Form Response Data",uniFormSubmitResponse.data)
 
     return {
       status: true,
@@ -203,8 +203,8 @@ export const postRequestUniSelectForm = async (
 
   } catch (error: any) {
     // Handle error
-    console.error('API -> Error during POST Uni Select', error);
-    console.log(error);
+    // console.error('API -> Error during POST Uni Select', error);
+    // console.log(error);
 
     return {
       status: false,

@@ -110,11 +110,8 @@ generateUniSelectPrompt = (requestBody) => {
 3. **University Name 9**
    - **Pro:** [Pro detail]
    - **Con:** [Con detail]
-   - [University Name - Name of Program](URL)`,
-    },
-    {
-      role: "system",
-      content: "Apart from the college recommendations you provide, you should also make a comment/judegement on the student's profile and credentials.",
+   - [University Name - Name of Program](URL)
+`,
     },
     {
       role: "system",
