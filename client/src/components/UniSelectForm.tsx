@@ -817,7 +817,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
                   onChange={handleHeightDegreeAchievedInstitutionOnChanged}
                   size="lg"
                   type="text"
-                  placeholder="e.g. Vellore Institute of Technology, Vellore"
+                  placeholder="e.g. University of California, Berkeley"
                   id="institutionOfHighestDegreeInputTextBox"
                   aria-describedby="institutionOfHighestDegreeHelpBlock"
                 />
@@ -950,7 +950,7 @@ const UniSelectForm: React.FC<UniSelectFormProps> = ({
                 }}
                 className="pb-3"
               >
-                <Form.Label>GRE Score Quant | Verbal</Form.Label>
+                <Form.Label>GRE Score - Quant | Verbal</Form.Label>
                 <Form.Text className="pb-2 text-danger" id="greScoreErrorBox">
                   {greScoreCombinedError}
                 </Form.Text>
