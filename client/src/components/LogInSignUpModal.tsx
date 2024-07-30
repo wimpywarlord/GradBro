@@ -10,6 +10,8 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
 import "../assets/css/LogInSignUpModal.css";
 
@@ -37,6 +39,11 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
   handleCloseLogInSignUpModal,
   setUserIsLoggedIn,
 }) => {
+  // ! TOOL TIP
+  const renderTooltip = (toolTipText: any) => (
+    <Tooltip id="button-tooltip">{toolTipText}</Tooltip>
+  );
+
   // ! LOGIN FORM - EMAIL
   const [logInFormEmail, setLogInFormEmail] = useState("");
   const [logInFormEmailError, setLogInFormEmailError] = useState("");
@@ -151,6 +158,31 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
     }
   }, [alertShowInline, alertShowAbsolute]);
 
+  const directLoginUponSignUp = async (email: string, password: string) => {
+    const response = await postRequestLogin(email, password);
+
+    if (response.status) {
+      handleCloseLogInSignUpModal();
+
+      // Set the token in local storage
+      localStorage.setItem("jwtToken", response.token);
+      localStorage.setItem("userEmail", email);
+
+      setUserIsLoggedIn(true);
+      setAlertMessage(response.message);
+      setAlertType("success");
+      setAlertShowAbsolute(true);
+
+      return true;
+    } else {
+      setAlertMessage(response.message);
+      setAlertType("danger");
+      setAlertShowInline(true);
+
+      return false;
+    }
+  };
+
   const handleSignUpButtonClick = async () => {
     if (
       signUpFormValidation(
@@ -175,14 +207,18 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       // console.log(response);
 
       if (response.status) {
-        setAlertShowAbsolute(true);
-        setAlertMessage(response.message);
-        setAlertType("success");
-        handleCloseLogInSignUpModal();
-        setSignUpFormFirstName("");
-        setSignUpFormLastName("");
-        setSignUpFormEmail("");
-        setSignUpFormPassword("");
+        // ! If sign up is successful, then directly log in the user
+        const isDirectLoginSuccessfull = await directLoginUponSignUp(
+          signUpFormEmail,
+          signUpFormPassword
+        );
+        if (isDirectLoginSuccessfull) {
+          handleCloseLogInSignUpModal();
+          setSignUpFormFirstName("");
+          setSignUpFormLastName("");
+          setSignUpFormEmail("");
+          setSignUpFormPassword("");
+        }
       } else {
         setAlertShowInline(true);
         setAlertMessage(response.message);
@@ -198,7 +234,7 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
       {alertShowAbsolute && (
         <GradBroAlert
           inPlaceOrAbsolute="fixed"
-          topPosition="92.5%"
+          topPosition="7.5%"
           rightPosition="2%"
           message={alertMessage}
           variant={alertType}
@@ -232,6 +268,26 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                   <span className="log-in-sign-up-modal-tabs">Log-In</span>
                 }
               >
+                <Row className="py-3">
+                  <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span style={{ fontWeight: "500", fontSize: "1.15rem" }}>
+                      Come{" "}
+                      <a
+                        href="https://chat.whatsapp.com/Cgs28NvcUXs8L2sYc1xnwC"
+                        target="_blank"
+                      >
+                        Join
+                      </a>{" "}
+                      the GradBro WhatsApp Community 💛
+                    </span>
+                  </Col>
+                </Row>
                 <Row className="pt-3">
                   <Col>
                     {/* ALERT */}
@@ -244,7 +300,6 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                     )}
                   </Col>
                 </Row>
-
                 <Row className="py-3">
                   <Col>
                     <Form.Group
@@ -305,6 +360,40 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                     </Form.Group>
                   </Col>
                 </Row>
+                <Row className="pb-3">
+                  <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span>Forgot Password?</span>
+                    <OverlayTrigger
+                      placement="top"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={renderTooltip(
+                        "Reach out in the #Tech Help Channel in GradBro WhatsApp Community"
+                      )}
+                    >
+                      <svg
+                        style={{ marginLeft: "4px", marginBottom: "4px" }}
+                        width="24px"
+                        height="24px"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z"
+                          fill="#1C274C"
+                        />
+                      </svg>
+                    </OverlayTrigger>
+                  </Col>
+                </Row>
                 <Row className="pb-4 pt-2">
                   <Col
                     style={{
@@ -337,6 +426,26 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                   <span className="log-in-sign-up-modal-tabs">Sign-Up</span>
                 }
               >
+                <Row className="py-3">
+                  <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span style={{ fontWeight: "500", fontSize: "1.15rem" }}>
+                      Come{" "}
+                      <a
+                        href="https://chat.whatsapp.com/Cgs28NvcUXs8L2sYc1xnwC"
+                        target="_blank"
+                      >
+                        Join
+                      </a>{" "}
+                      the GradBro WhatsApp Community 💛
+                    </span>
+                  </Col>
+                </Row>
                 <Row className="pt-3">
                   <Col>
                     {/* ALERT */}

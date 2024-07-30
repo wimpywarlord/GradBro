@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
 interface UniSelectFormProgressbarProps {
@@ -65,7 +66,10 @@ const UniSelectFormProgressbar: React.FC<UniSelectFormProgressbarProps> = ({
   researchArticleUrl,
   githubUrl,
 }) => {
-  const calculateFormProgress = () => {
+  const [progressBarVariant, setProgressBarVariant] = useState<string>("");
+  const [progress, setProgress] = useState<number>(0);
+
+  useEffect(() => {
     const totalFields = 30;
     let filledFields = 0;
     if (highestDegreeAchieved) filledFields++;
@@ -99,13 +103,58 @@ const UniSelectFormProgressbar: React.FC<UniSelectFormProgressbarProps> = ({
     if (researchArticleUrl) filledFields++;
     if (githubUrl) filledFields++;
 
-    return (filledFields / totalFields) * 100;
-  };
+    const ai_strength_score = (filledFields / totalFields) * 100;
+
+    if (ai_strength_score < 20) {
+      setProgressBarVariant("danger");
+    } else if (ai_strength_score < 40) {
+      setProgressBarVariant("warning");
+    } else if (ai_strength_score < 60) {
+      setProgressBarVariant("info");
+    } else {
+      setProgressBarVariant("success");
+    }
+
+    setProgress(ai_strength_score);
+  }, [
+    highestDegreeAchieved,
+    highestDegreeAchievedSpecialisation,
+    highestDegreeAchievedGraduationYear,
+    heightDegreeAchievedInstitution,
+    highestDegreeAchievedCollegeTier,
+    cgpaScore,
+    cgpaScale,
+    greQuantScore,
+    greVerbalScore,
+    gmatScore,
+    gmatExamEdition,
+    toeflScore,
+    ieltsScore,
+    destinationCountry,
+    degreeOfInterest,
+    degreeOfInterestSpecialisation,
+    educationBudget,
+    yearsOfWorkEx,
+    typeOfWorkEx,
+    typeOfCompany,
+    nameOfTheCompany,
+    jobTitle,
+    numberOfResearchArticles,
+    qualityOfResearch,
+    numberOfLetterOfRecommendation,
+    qualityOfLetterOfRecommendation,
+    linkedInUrl,
+    portfolioUrl,
+    researchArticleUrl,
+    githubUrl,
+  ]);
 
   return (
     <ProgressBar
-      now={calculateFormProgress()}
-      label={`${calculateFormProgress()}%`}
+      animated
+      variant={progressBarVariant}
+      now={progress}
+      label={`${progress}%`}
       visuallyHidden
     />
   );

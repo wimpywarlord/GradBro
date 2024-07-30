@@ -4,6 +4,26 @@ import Col from "react-bootstrap/Col";
 const Footer = () => {
   return (
     <div>
+      <Row
+        className="pb-4"
+        style={{
+          color: "white",
+        }}
+      >
+        <Col
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            fontSize: "1em",
+            fontWeight: "500",
+          }}
+        >
+          <span className="mx-1">Made with 💛 by</span>
+          <a target="_blank" href="https://www.linkedin.com/in/kshitijdhyani/">
+            Kshitij Dhyani
+          </a>
+        </Col>
+      </Row>
       <Row>
         <Col
           style={{

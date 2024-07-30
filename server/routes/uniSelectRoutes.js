@@ -59,13 +59,77 @@ generateUniSelectPrompt = (requestBody) => {
     },
     {
       role: "system",
+      content: "Always follow this markdown format to provide the recommendation of the universities.",
+    },
+    {
+      role: "system",
+      content: `
+      ### Safe Universities
+1. **University Name 1**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+2. **University Name 2**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+3. **University Name 3**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+### Medium Universities
+1. **University Name 4**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+2. **University Name 5**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+3. **University Name 6**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+### Ambitious Universities
+1. **University Name 7**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+2. **University Name 8**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+
+3. **University Name 9**
+   - **Pro:** [Pro detail]
+   - **Con:** [Con detail]
+   - [University Name - Name of Program](URL)
+`,
+    },
+    {
+      role: "system",
       content: "Please recommend universities for the following student profile:",
     },
     {
       role: "user",
       content:
-        `I hold a ${highest_degree_achieved}, and I graduated in ${highest_degree_achieved_graduation_year} from ${height_degree_achieved_institution} with a CGPA of ${cgpa_score} / ${cgpa_scale}. I want to pursue a ${degree_of_interest} in ${destination_country}. I have a budget of ${education_budget} for my studies. I have a total of ${years_of_work_ex} years of work experience.`,
+        `I hold a ${highest_degree_achieved}, and I graduated in ${highest_degree_achieved_graduation_year} from ${height_degree_achieved_institution} with a CGPA of ${cgpa_score} / ${cgpa_scale}. I want to pursue a ${degree_of_interest} in ${destination_country}.`,
     },
+    {
+      role: "user",
+      content: `I have a budget of ${education_budget} for my studies. Please recommend universities that fit my education budget.`,
+    },
+    {
+      role: "user",
+      content: `I have a total of ${years_of_work_ex} years of work experience.`,
+    }
   ];
   if (
     highest_degree_achieved_specialisation ||
@@ -91,7 +155,7 @@ generateUniSelectPrompt = (requestBody) => {
   ) {
     promptMessages.push({
       role: "user",
-      content: `Here are some additional details about me:`,
+      content: `Here are some additional details about my profile:`,
     });
     if (highest_degree_achieved_specialisation) {
       promptMessages.push({

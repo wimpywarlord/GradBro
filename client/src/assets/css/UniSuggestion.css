@@ -1,11 +1,24 @@
 /* markdownStyles.css */
+@media screen and (max-width: 576px) {
+  .parent-container-markdown-content{
+    padding-left: 2vw;
+    padding-left: 2vw;
+  }
+}
+
+@media screen and (min-width: 577px) {
+
+}
+
+@media screen and (min-width: 1441px) {
+
+}
 
 /* General Styles */
 .markdown-content {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #232323;
+  color: #000000;
   line-height: 1.6;
-  padding: 20px;
   max-width: 800px;
   margin: auto;
 }
@@ -17,7 +30,7 @@
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  color: #000000;
+  color: #145A32;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
@@ -53,7 +66,7 @@
 }
 
 .markdown-content a {
-  color: #0F6292;
+  color: #21618C;
   text-decoration: none;
   font-weight: bold;
 }
