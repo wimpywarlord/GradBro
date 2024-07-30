@@ -368,7 +368,12 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                       alignItems: "center",
                     }}
                   >
-                    <span>Forgot Password?</span>
+                    <a
+                      href="https://chat.whatsapp.com/BmZ8lUylUnqHK7ANV3YGa0"
+                      target="_blank"
+                    >
+                      <span>Forgot Password?</span>
+                    </a>
                     <OverlayTrigger
                       placement="top"
                       delay={{ show: 250, hide: 400 }}
