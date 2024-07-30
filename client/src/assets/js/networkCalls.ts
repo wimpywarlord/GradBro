@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const baseURL = 'https://gradbro.onrender.com/api'; // Production
-const baseURL = 'http://localhost:3000/api'; // ! Development: NEVER PUSH TO PROD
+const baseURL = 'https://gradbro.onrender.com/api'; // Production
+// const baseURL = 'http://localhost:3000/api'; // ! Development: NEVER PUSH TO PROD
 
 // ! SIGN UP API CALL
 export const postRequestSignUp = async (
