@@ -7,6 +7,7 @@ import GradBroLogo from "../assets/img/icons/grad-bro-logo.svg";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Badge from "react-bootstrap/Badge";
 
 import UniSelectForm from "../components/UniSelectForm";
 
@@ -393,6 +394,18 @@ function HomePage() {
               >
                 <NavDropdown.Item href="#">
                   Profile (Coming Soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  style={{
+                    color: "white",
+                  }}
+                  target="_blank"
+                  href="https://chat.whatsapp.com/Cgs28NvcUXs8L2sYc1xnwC"
+                >
+                  Community{" "}
+                  <Badge pill bg="success">
+                    Join Now
+                  </Badge>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleUserLogout} href="#">

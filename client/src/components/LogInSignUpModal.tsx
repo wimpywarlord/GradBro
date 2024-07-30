@@ -232,6 +232,26 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                   <span className="log-in-sign-up-modal-tabs">Log-In</span>
                 }
               >
+                <Row className="py-3">
+                  <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span style={{ fontWeight: "500", fontSize: "1.15rem" }}>
+                      Come{" "}
+                      <a
+                        href="https://chat.whatsapp.com/Cgs28NvcUXs8L2sYc1xnwC"
+                        target="_blank"
+                      >
+                        Join
+                      </a>{" "}
+                      the GradBro WhatsApp Community 💛
+                    </span>
+                  </Col>
+                </Row>
                 <Row className="pt-3">
                   <Col>
                     {/* ALERT */}
@@ -244,7 +264,6 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                     )}
                   </Col>
                 </Row>
-
                 <Row className="py-3">
                   <Col>
                     <Form.Group
@@ -337,6 +356,26 @@ const LogInSignUpModal: React.FC<LogInSignUpModalProps> = ({
                   <span className="log-in-sign-up-modal-tabs">Sign-Up</span>
                 }
               >
+                <Row className="py-3">
+                  <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span style={{ fontWeight: "500", fontSize: "1.15rem" }}>
+                      Come{" "}
+                      <a
+                        href="https://chat.whatsapp.com/Cgs28NvcUXs8L2sYc1xnwC"
+                        target="_blank"
+                      >
+                        Join
+                      </a>{" "}
+                      the GradBro WhatsApp Community 💛
+                    </span>
+                  </Col>
+                </Row>
                 <Row className="pt-3">
                   <Col>
                     {/* ALERT */}
