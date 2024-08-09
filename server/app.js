@@ -36,7 +36,10 @@ const limiter = rateLimit({
 var app = express();
 
 // MIDDLEWARE
-app.use(cors());
+app.use(cors({
+	origin: 'https://gradbro-1.onrender.com' // Replace with your frontend URL
+}
+));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
