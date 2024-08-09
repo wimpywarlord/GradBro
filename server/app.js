@@ -37,7 +37,7 @@ var app = express();
 
 // MIDDLEWARE
 app.use(cors({
-	origin: 'https://gradbro-1.onrender.com' // Replace with your frontend URL
+	origin: ['https://gradbro-1.onrender.com', 'https://www.gradbro.com'], // Replace with your frontend URL
 }
 ));
 app.use(express.json());
